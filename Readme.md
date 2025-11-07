@@ -25,6 +25,4 @@ Deployment: Render
 
 # Disclaimer
 
-This project is created solely for educational and research purposes as part of a business analytics learning module.
-
-It is not affiliated with or endorsed by NVIDIA Corporation, and the data used is for demonstration only, not for financial trading or investment advice.
+This project is created solely for educational purpose only and is not affiliated with or endorsed by NVIDIA Corporation
