@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Prediction Tool</a> |
+        <a href="/dashboard">Analytics Dashboard</a>
+    </nav>
+
+    <h1 style="text-align:center;">NVIDIA Financial Analytics Dashboard</h1>
+
+    <div class="chart">{{ graph_candle | safe }}</div>
+<div class="chart">{{ graph_close | safe }}</div>
+<div class="chart">{{ graph_vol | safe }}</div>
+
+</body>
+</html>

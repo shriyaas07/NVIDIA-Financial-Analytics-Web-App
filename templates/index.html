@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA Stock Predictor</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
+        }
+
+        header {
+            background-color: #76b900; /* NVIDIA green */
+            color: white;
+            text-align: center;
+            padding: 18px 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 30px auto;
+            background: #f8f8f8;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        h2 {
+            color: #76b900;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        button {
+            grid-column: span 2;
+            background-color: #76b900;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #64a000;
+        }
+
+        .prediction-box {
+            margin-top: 25px;
+            background: #e6f6d5;
+            border-left: 5px solid #76b900;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        @media screen and (max-width: 600px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    NVIDIA Stock Price Prediction Dashboard
+</header>
+
+<div class="container">
+    <h2>Enter Key Indicators</h2>
+    <form action="/predict" method="POST">
+        <div>
+            <label for="prev_close">Previous Close Price:</label>
+            <input type="number" step="any" name="prev_close" required>
+        </div>
+        <div>
+            <label for="ma7">7-Day Moving Average (MA7):</label>
+            <input type="number" step="any" name="ma7" required>
+        </div>
+        <div>
+            <label for="ma30">30-Day Moving Average (MA30):</label>
+            <input type="number" step="any" name="ma30" required>
+        </div>
+        <div>
+            <label for="volatility">Volatility:</label>
+            <input type="number" step="any" name="volatility" required>
+        </div>
+
+        <button type="submit">Predict Next Price</button>
+    </form>
+
+    {% if prediction %}
+    <div class="prediction-box">
+        Predicted Closing Price: <span style="color:#1a1a1a;">${{ prediction }}</span>
+    </div>
+    {% endif %}
+
+    <div class="chart-container">
+        {{ graph_html | safe }}
+</div>
+{% if model_summary %}
+<div class="prediction-box" style="margin-top: 20px; background: #f0fbea;">
+    <strong>{{ model_summary }}</strong>
+</div>
+{% endif %}
+
+<footer>
+    © 2025 Shriyaa Srivastav | Financial Analytics Portfolio Project <br>
+    <small style="color: #ccc;">Disclaimer: This project is created for educational purposes only and is not affiliated with or endorsed by NVIDIA Corporation.</small>
+</footer>
+
+</body>
+</html>
