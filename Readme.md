@@ -23,7 +23,18 @@ Libraries: Pandas, NumPy, Scikit-learn, Plotly, SQL lite
 
 Deployment: Render
 
+**Skills Demonstrated**
+- Python (Pandas, NumPy, Scikit-learn)
+- API Integration (`yfinance`)
+- SQL (via SQLite)
+- Data Visualization (Matplotlib)
+- Financial Feature Engineering
+- Machine Learning (Linear Regression)
+
+
+
 # Disclaimer
 
 This project is created solely for educational purpose only and is not affiliated with or endorsed by NVIDIA Corporation
+
 
