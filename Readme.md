@@ -19,10 +19,11 @@ Frontend: HTML, CSS, Plotly.js
 
 Backend: Flask (Python)
 
-Libraries: Pandas, NumPy, Scikit-learn, Plotly
+Libraries: Pandas, NumPy, Scikit-learn, Plotly, SQL lite
 
 Deployment: Render
 
 # Disclaimer
 
 This project is created solely for educational purpose only and is not affiliated with or endorsed by NVIDIA Corporation
+
